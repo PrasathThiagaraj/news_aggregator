@@ -1,44 +1,50 @@
-# Personal News Aggregator with AI Summarization
+# Personal News Aggregator
 
-A simple full-stack web application that aggregates news articles and provides AI-powered summaries using the Gemini API.
+A simple full-stack web application that aggregates news articles based on user interests.  
+This project focuses on building a functional end-to-end system with authentication, content aggregation, and basic user interaction.
+
+---
 
 ## Features
 
-- 🔐 **User Authentication** - Register and login
-- 📰 **News Feed** - View top headlines from NewsAPI
-- 🤖 **AI Summarization** - Get quick summaries powered by Google Gemini
-- 💾 **Save Articles** - Bookmark articles for later reading
-- 📱 **Clean UI** - Simple and responsive design
+- 🔐 **User Authentication** – User registration and login
+- 📰 **News Feed** – Fetch and display news articles from a public news API
+- 💾 **Article Management** – Save articles for later reading
+- 🧩 **Modular Structure** – Clear separation of frontend and backend concerns
+- 🎨 **Clean UI** – Simple and functional interface
+
+---
 
 ## Tech Stack
 
-**Backend:**
+### Backend
 - Node.js + Express
 - MongoDB (Mongoose)
-- JWT Authentication
-- Gemini API (AI Summarization)
-- NewsAPI (News Aggregation)
+- JWT-based authentication
+- NewsAPI (News aggregation)
 
-**Frontend:**
-- React (Vite)
+### Frontend
+- React
 - React Router
 - Axios
 - Vanilla CSS
 
+---
+
 ## Setup Instructions
 
 ### Prerequisites
-- Node.js (v20+)
+- Node.js (v18+)
 - MongoDB (local or Atlas)
-- NewsAPI Key (from [newsapi.org](https://newsapi.org))
-- Gemini API Key (from [Google AI Studio](https://aistudio.google.com))
+- NewsAPI Key
+
+---
 
 ### Installation
 
-1. **Clone/Navigate to the project**
+1. **Navigate to the project directory**
    ```bash
    cd news_agg
-   ```
 
 2. **Backend Setup**
    ```bash
@@ -54,7 +60,6 @@ A simple full-stack web application that aggregates news articles and provides A
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_secret_key
    NEWS_API_KEY=your_newsapi_key
-   GEMINI_API_KEY=your_gemini_api_key
    ```
 
 4. **Frontend Setup**
@@ -77,13 +82,10 @@ cd client
 npm run dev
 ```
 
-Open your browser to: **http://localhost:5173**
-
 ## Usage Guide
 
 1. **Sign Up** - Create a new account
-2. **Browse News** - View the latest headlines on the homepage
-3. **Summarize** - Click "Summarize with AI" on any article
+2. **Browse News** - View the latest headlines based on your interest on the homepage
 4. **Save Articles** - Click "Save for Later" (requires login)
 5. **View Saved** - Access your saved articles from the "Saved" tab
 
@@ -113,6 +115,7 @@ news_agg/
     │   ├── index.css
     │   └── main.jsx
     └── package.json
+
 ```
 
 ## API Endpoints
@@ -123,9 +126,8 @@ news_agg/
 
 ### News
 - `GET /api/news` - Fetch top headlines
-- `POST /api/news/summarize` - Generate AI summary
-- `POST /api/news/save` - Save article (requires auth)
-- `GET /api/news/saved` - Get saved articles (requires auth)
+- `POST /api/news/save` - Save article
+- `GET /api/news/saved` - Get saved articles
 
 ## Troubleshooting
 
@@ -134,8 +136,7 @@ news_agg/
 - Check your `MONGO_URI` in `.env`
 
 **API Errors:**
-- Verify your NewsAPI and Gemini API keys are valid
-- Check API quota limits (Gemini free tier has rate limits)
+- Verify your NewsAPI key are valid
 
 **Port Conflicts:**
 - Backend runs on port 5000
@@ -144,9 +145,7 @@ news_agg/
 
 ## Notes
 
-- The AI summarization works best when articles have descriptions
 - Some articles may not have full content from NewsAPI
-- Gemini API free tier has usage limits
 
 ## License
 
