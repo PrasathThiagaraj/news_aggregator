@@ -26,8 +26,7 @@ This project focuses on building a functional end-to-end system with authenticat
 ### Frontend
 - React
 - React Router
-- Axios
-- Vanilla CSS
+- CSS
 
 ---
 
