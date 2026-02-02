@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ArticleCard from './ArticleCard';
 import InterestsSelector from './InterestsSelector';
+import API_URL from '../config';
 
 const NewsFeed = ({ token }) => {
     const [articles, setArticles] = useState([]);
@@ -14,12 +15,11 @@ const NewsFeed = ({ token }) => {
     const fetchNews = async () => {
         setLoading(true);
         try {
-            let url = 'http://localhost:5000/api/news';
+            let url = `${API_URL}/api/news`;
             let headers = {};
 
-            // If logged in, fetch personalized news
             if (token) {
-                url = 'http://localhost:5000/api/news/personalized';
+                url = `${API_URL}/api/personalized`;
                 headers = { 'x-auth-token': token };
             }
 

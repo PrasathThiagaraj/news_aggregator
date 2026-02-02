@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import API_URL from '../config';
 
 const Login = ({ setToken }) => {
     const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const Login = ({ setToken }) => {
     const onSubmit = async e => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5000/api/auth/login', formData);
+            const res = await axios.post(`${API_URL}/api/login`, formData);
             setToken(res.data.token);
             navigate('/');
         } catch (err) {

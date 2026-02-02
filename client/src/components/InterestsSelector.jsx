@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import API_URL from '../config';
 
 const CATEGORIES = [
     { id: 'general', label: 'General', emoji: '📰' },
@@ -21,7 +22,7 @@ const InterestsSelector = ({ token, onUpdate }) => {
 
     const fetchInterests = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/news/interests', {
+            const response = await fetch(`${API_URL}/api/interests`, {
                 headers: { 'x-auth-token': token }
             });
             const data = await response.json();
@@ -46,7 +47,7 @@ const InterestsSelector = ({ token, onUpdate }) => {
     const saveInterests = async () => {
         setSaving(true);
         try {
-            await fetch('http://localhost:5000/api/news/interests', {
+            await fetch(`${API_URL}/api/interests`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import API_URL from '../config';
 
 const ArticleCard = ({ article, token, onSave }) => {
     const [saved, setSaved] = useState(false);
 
     const handleSave = async () => {
         try {
-            const response = await fetch('http://localhost:5000/api/news/save', {
+            const response = await fetch(`${API_URL}/api/saved`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
