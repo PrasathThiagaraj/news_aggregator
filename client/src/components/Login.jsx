@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import API_URL from '../config';
 
 const Login = ({ setToken }) => {
@@ -29,21 +29,40 @@ const Login = ({ setToken }) => {
     return (
         <div className="auth-wrapper">
             <div className="auth-form">
-                <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Login</h2>
-                {error && <p className="error-msg" style={{ marginBottom: '1rem' }}>{error}</p>}
+                <div className="auth-logo">📰</div>
+                <h2>NewsAGG</h2>
+                <p className="auth-subtitle">Sign in to your account</p>
+
+                {error && <p className="error-msg" style={{ marginBottom: '1rem', textAlign: 'left' }}>{error}</p>}
+
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <label>Username</label>
-                        <input type="text" name="username" value={username} onChange={onChange} required />
+                        <input
+                            type="text"
+                            name="username"
+                            value={username}
+                            onChange={onChange}
+                            placeholder="Enter your username"
+                            required
+                        />
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" name="password" value={password} onChange={onChange} required />
+                        <input
+                            type="password"
+                            name="password"
+                            value={password}
+                            onChange={onChange}
+                            placeholder="Enter your password"
+                            required
+                        />
                     </div>
-                    <button type="submit" className="btn-block">Login</button>
+                    <button type="submit" className="btn-block">Sign In</button>
                 </form>
-                <p style={{ marginTop: '1rem', textAlign: 'center' }}>
-                    Don't have an account? <a href="/register" style={{ color: 'var(--primary)' }}>Sign Up</a>
+
+                <p className="auth-footer">
+                    Don't have an account? <Link to="/register">Sign up now</Link>
                 </p>
             </div>
         </div>
