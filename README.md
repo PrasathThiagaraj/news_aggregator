@@ -13,6 +13,8 @@ This project focuses on building a functional end-to-end system with authenticat
 - 🧩 **Modular Structure** – Clear separation of frontend and backend concerns
 - 🎨 **Clean UI** – Simple and functional interface
 
+> AI-based features are considered extensions and are not fully integrated in this prototype.
+
 ---
 
 ## Tech Stack
